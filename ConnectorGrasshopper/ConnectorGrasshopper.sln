@@ -26,12 +26,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConverterGrasshopper7", "..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectorGrasshopper", "ConnectorGrasshopper\ConnectorGrasshopper.csproj", "{109B3382-634B-408A-8A5C-4CD09CB92641}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectorGrasshopperExtension", "ConnectorGrasshopperExtension\ConnectorGrasshopperExtension.csproj", "{5BDFD9C3-2AA2-443D-9364-F2E2C8125E06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeckleQueryExtensions", "SpeckleQueryExtensions\SpeckleQueryExtensions.csproj", "{CE932936-C8FD-4823-B253-BAC826B65A3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryExtensionTemp", "QueryExtensionTest\QueryExtensionTemp.csproj", "{55B33FA3-51AC-4F61-B859-1B4FE4495B04}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitTestExtension", "NUnitTestExtension\NUnitTestExtension.csproj", "{0AF92243-981E-4F86-B2B2-74AAFA3829B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCFSpeckleKit", "BCFSpeckleKit\BCFSpeckleKit.csproj", "{6E40077F-FD9F-46A1-A9DF-E6B075164C0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCFSpeckleLibrary", "BCFSpeckleLibrary\BCFSpeckleLibrary.csproj", "{4C542EF4-78DA-43AA-A091-72BA5E8EB0AF}"
+EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\Objects\Converters\ConverterRhinoGh\ConverterRhinoGhShared\ConverterRhinoGhShared.projitems*{b74cb8c1-187b-46a6-b20b-92b8c129f3ee}*SharedItemsImports = 13
-		..\Objects\Converters\ConverterRhinoGh\ConverterRhinoGhShared\ConverterRhinoGhShared.projitems*{d0783323-d28a-4a2b-9f4e-3534275d3909}*SharedItemsImports = 5
-		..\Objects\Converters\ConverterRhinoGh\ConverterRhinoGhShared\ConverterRhinoGhShared.projitems*{d79a3aac-b7c4-46ea-90ac-5f63be1e8775}*SharedItemsImports = 5
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -65,6 +72,30 @@ Global
 		{109B3382-634B-408A-8A5C-4CD09CB92641}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{109B3382-634B-408A-8A5C-4CD09CB92641}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{109B3382-634B-408A-8A5C-4CD09CB92641}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BDFD9C3-2AA2-443D-9364-F2E2C8125E06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BDFD9C3-2AA2-443D-9364-F2E2C8125E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BDFD9C3-2AA2-443D-9364-F2E2C8125E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BDFD9C3-2AA2-443D-9364-F2E2C8125E06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE932936-C8FD-4823-B253-BAC826B65A3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE932936-C8FD-4823-B253-BAC826B65A3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE932936-C8FD-4823-B253-BAC826B65A3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE932936-C8FD-4823-B253-BAC826B65A3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55B33FA3-51AC-4F61-B859-1B4FE4495B04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55B33FA3-51AC-4F61-B859-1B4FE4495B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55B33FA3-51AC-4F61-B859-1B4FE4495B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55B33FA3-51AC-4F61-B859-1B4FE4495B04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AF92243-981E-4F86-B2B2-74AAFA3829B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AF92243-981E-4F86-B2B2-74AAFA3829B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AF92243-981E-4F86-B2B2-74AAFA3829B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AF92243-981E-4F86-B2B2-74AAFA3829B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E40077F-FD9F-46A1-A9DF-E6B075164C0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E40077F-FD9F-46A1-A9DF-E6B075164C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E40077F-FD9F-46A1-A9DF-E6B075164C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E40077F-FD9F-46A1-A9DF-E6B075164C0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C542EF4-78DA-43AA-A091-72BA5E8EB0AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C542EF4-78DA-43AA-A091-72BA5E8EB0AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C542EF4-78DA-43AA-A091-72BA5E8EB0AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C542EF4-78DA-43AA-A091-72BA5E8EB0AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,5 +110,10 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3196A316-D590-4D60-8363-3A2FB801A6DC}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\Objects\Converters\ConverterRhinoGh\ConverterRhinoGhShared\ConverterRhinoGhShared.projitems*{b74cb8c1-187b-46a6-b20b-92b8c129f3ee}*SharedItemsImports = 13
+		..\Objects\Converters\ConverterRhinoGh\ConverterRhinoGhShared\ConverterRhinoGhShared.projitems*{d0783323-d28a-4a2b-9f4e-3534275d3909}*SharedItemsImports = 5
+		..\Objects\Converters\ConverterRhinoGh\ConverterRhinoGhShared\ConverterRhinoGhShared.projitems*{d79a3aac-b7c4-46ea-90ac-5f63be1e8775}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

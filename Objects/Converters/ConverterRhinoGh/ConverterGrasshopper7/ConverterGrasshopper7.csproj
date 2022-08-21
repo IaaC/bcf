@@ -19,6 +19,7 @@
         <PackageTags>speckle objects converter rhino grasshopper gh</PackageTags>
         <AssemblyName>Objects.Converter.Grasshopper7</AssemblyName>
         <RootNamespace>Objects.Converter.Rhino</RootNamespace>
+        <Platforms>AnyCPU;x64</Platforms>
     </PropertyGroup>
 
     <ItemGroup>
@@ -72,9 +73,19 @@
         <PlatformTarget>x64</PlatformTarget>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      <DefineConstants>TRACE;RHINO7;GRASSHOPPER</DefineConstants>
+      <PlatformTarget>x64</PlatformTarget>
+    </PropertyGroup>
+
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
         <DefineConstants>TRACE;RHINO7;GRASSHOPPER</DefineConstants>
         <PlatformTarget>x64</PlatformTarget>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      <DefineConstants>TRACE;RHINO7;GRASSHOPPER</DefineConstants>
+      <PlatformTarget>x64</PlatformTarget>
     </PropertyGroup>
 
     <PropertyGroup>
