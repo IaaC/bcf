@@ -19,6 +19,7 @@ using Floor = Objects.BuiltElements.Floor;
 using Ceiling = Objects.BuiltElements.Ceiling;
 using Pipe = Objects.BuiltElements.Pipe;
 using Roof = Objects.BuiltElements.Roof;
+using Topography = Objects.BuiltElements.Topography;
 using Opening = Objects.BuiltElements.Opening;
 using Point = Objects.Geometry.Point;
 using View3D = Objects.BuiltElements.View3D;
@@ -215,6 +216,14 @@ namespace Objects.Converter.RhinoGh
       return new RV.RevitFaceWall(family, type, BrepToSpeckle(brep), null) { units = ModelUnits };
     }
 
+    public Topography MeshToTopography(RH.Mesh mesh)
+    {
+      if (mesh.IsClosed)
+        return null;
+
+      return new Topography(MeshToSpeckle(mesh)) { units = ModelUnits };
+    }
+
     public RV.AdaptiveComponent InstanceToAdaptiveComponent(InstanceObject instance, string[] args)
     {
       if (args.Length == 0)
@@ -234,7 +243,7 @@ namespace Objects.Converter.RhinoGh
 
     public RV.DirectShape BrepToDirectShape(RH.Brep brep, string[] args)
     {
-      if (args.Length == 0)
+      if (args == null || args.Length == 0)
         return null;
       if (!Enum.TryParse($"{args[0]}s", out RV.RevitCategory category))
         return null;
@@ -245,7 +254,7 @@ namespace Objects.Converter.RhinoGh
 
     public RV.DirectShape ExtrusionToDirectShape(RH.Extrusion extrusion, string[] args)
     {
-      if (args.Length == 0)
+      if (args == null || args.Length == 0)
         return null;
       if (!Enum.TryParse($"{args[0]}s", out RV.RevitCategory category))
         return null;
@@ -256,7 +265,7 @@ namespace Objects.Converter.RhinoGh
 
     public RV.DirectShape MeshToDirectShape(RH.Mesh mesh, string[] args)
     {
-      if (args.Length == 0)
+      if (args == null || args.Length == 0)
         return null;
       if (!Enum.TryParse($"{args[0]}s", out RV.RevitCategory category))
         return null;

@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using DesktopUI2.ViewModels;
 using Rhino;
-using Rhino.Commands;
 using Rhino.PlugIns;
 
 namespace SpeckleRhino
@@ -21,15 +20,34 @@ namespace SpeckleRhino
     public ConnectorBindingsRhino Bindings { get; private set; }
     public MainViewModel ViewModel { get; private set; }
 
+    private bool _initialized;
+
     public SpeckleRhinoConnectorPlugin()
     {
       Instance = this;
-      RhinoDoc.BeginOpenDocument += RhinoDoc_BeginOpenDocument;
-      RhinoDoc.EndOpenDocument += RhinoDoc_EndOpenDocument;
-      SpeckleCommand.InitAvalonia();
+    }
 
-      Bindings = new ConnectorBindingsRhino();
-      ViewModel = new MainViewModel(Bindings);
+    internal void Init()
+    {
+      try
+      {
+        if (_initialized)
+          return;
+
+        SpeckleCommand.InitAvalonia();
+        Bindings = new ConnectorBindingsRhino();
+        ViewModel = new MainViewModel(Bindings);
+
+        RhinoDoc.BeginOpenDocument += RhinoDoc_BeginOpenDocument;
+        RhinoDoc.EndOpenDocument += RhinoDoc_EndOpenDocument;
+
+        _initialized = true;
+      }
+      catch (Exception ex)
+      {
+
+      }
+
     }
 
     private void RhinoDoc_EndOpenDocument(object sender, DocumentOpenEventArgs e)
@@ -48,8 +66,6 @@ namespace SpeckleRhino
         return;
       }
 
-
-
       if (Bindings.GetStreamsInFile().Count > 0)
       {
 #if MAC
@@ -63,6 +79,9 @@ namespace SpeckleRhino
 
     private void RhinoDoc_BeginOpenDocument(object sender, DocumentOpenEventArgs e)
     {
+      //new document => new view model (used by the panel only)
+      ViewModel = new MainViewModel(Bindings);
+
       if (e.Merge) // this is a paste or import event
       {
         // get existing streams in doc before a paste or import operation to use for cleanup
@@ -75,6 +94,8 @@ namespace SpeckleRhino
     /// </summary>
     protected override LoadReturnCode OnLoad(ref string errorMessage)
     {
+      Init();
+
 #if !MAC
       System.Type panelType = typeof(Panel);
       // Register my custom panel class type with Rhino, the custom panel my be display

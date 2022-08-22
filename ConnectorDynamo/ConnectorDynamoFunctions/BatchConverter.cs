@@ -135,12 +135,13 @@ namespace Speckle.ConnectorDynamo.Functions
       return result;
     }
 
-    private static Regex dataTreePathRegex => new Regex(@"^(@\(\d+\))?(?<path>\{\d+(;\d+)*\})$");
+    private static Regex dataTreePathRegex => new Regex(@"^(@(\(\d+\))?)?(?<path>\{\d+(;\d+)*\})$");
     
     public static bool IsDataTree(Base @base)
     {
       var regex = dataTreePathRegex;
       var members = @base.GetDynamicMembers().ToList();
+      if (members.Count == 0) return false;
       var isDataTree = members.All(el => regex.Match(el).Success);
       return members.Count > 0 && isDataTree;
     }
@@ -203,7 +204,7 @@ namespace Speckle.ConnectorDynamo.Functions
       // case 2: it's a wrapper Base
       //       2a: if there's only one member unpack it
       //       2b: otherwise return dictionary of unpacked members
-      var members = @base.GetDynamicMembers();
+      var members = @base.GetMemberNames();
 
       if (members.Count() == 1)
       {
