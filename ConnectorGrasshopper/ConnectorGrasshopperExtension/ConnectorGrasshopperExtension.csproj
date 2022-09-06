@@ -13,6 +13,7 @@
     <!-- Fix the default copy local behaviour changed in VS 2015 -->
     <DoNotCopyLocalIfInGac>True</DoNotCopyLocalIfInGac>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
   </PropertyGroup>
   
   <ItemGroup>
@@ -28,7 +29,7 @@
     <ProjectReference Include="..\BCFSpeckleKit\BCFSpeckleKit.csproj" />
     <ProjectReference Include="..\BCFSpeckleLibrary\BCFSpeckleLibrary.csproj" />
     <ProjectReference Include="..\ConnectorGrasshopper\ConnectorGrasshopper.csproj">
-      <Private>False</Private>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\SpeckleQueryExtensions\SpeckleQueryExtensions.csproj" />
   </ItemGroup>

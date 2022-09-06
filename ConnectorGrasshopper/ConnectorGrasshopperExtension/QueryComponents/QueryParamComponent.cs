@@ -96,7 +96,7 @@ namespace ConnectorGrasshopperExtension
     /// You can add image files to your project resources and access them like this:
     /// return Resources.IconForThisComponent;
     /// </summary>
-    protected override System.Drawing.Bitmap Icon => Properties.Resources.FictionFactoryLogo;
+    protected override System.Drawing.Bitmap Icon => Properties.Resources.QueryParam;
 
     /// <summary>
     /// Each component must have a unique Guid to identify it. 
