@@ -20,14 +20,15 @@ namespace ConnectorGrasshopperExtension.Streams
   public class ProjectStreamComponent : GH_Component
   {
     public bool CreateStreamIfNotExists { get; set; } = false;
+    private List<string> branchesOrder = new List<string> { "main", "uploaded", "nested", "done" };
 
     /// <summary>
     /// Initializes a new instance of the ProjectStreamComponent class.
     /// </summary>
     public ProjectStreamComponent()
-      : base("Project", "Prj",
+      : base("Projects", "Prj",
           "Get/Create a project stream.",
-          "Speckle 2", "BCF Repository")
+          "Speckle 2", "BCF Repo")
     {
       Attributes = new ProjectStreamComponentAttributes(this);
     }
@@ -81,6 +82,9 @@ namespace ConnectorGrasshopperExtension.Streams
 
       var branchNames = new List<string>();
       DA.GetDataList(2, branchNames);
+      if (branchNames.Count <= 0)
+        branchNames = null;
+
       BCFProject prj = null;
       try
       {
@@ -111,14 +115,24 @@ namespace ConnectorGrasshopperExtension.Streams
           AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, prj.ProjectName + ": " + ex.InnerException.Message);
         }
 
-        DA.SetDataList(1, isValid ? prj.branches.ToList().Select(branch => branch.Key).ToList() : new List<string>());
-        DA.SetDataList(2, isValid ? prj.branches.ToList().Select(branch => branch.Value.ToString()).ToList() : new List<string>());
+        DA.SetDataList(1, isValid ? 
+          prj.branches.ToList()
+            .Where(b => branchNames?.Contains( (string)b.Key ) ?? true)
+            .OrderBy(b => branchesOrder.IndexOf( (string)b.Key ))
+            .Select(branch => branch.Key).ToList() : 
+          new List<string>());
+        DA.SetDataList(2, isValid ? 
+          prj.branches.ToList()
+            .Where(b => branchNames?.Contains((string)b.Key) ?? true)
+            .OrderBy(b => branchesOrder.IndexOf((string)b.Key))
+            .Select(branch => branch.Value.ToString()).ToList() : 
+          new List<string>());
 
         var partsTree = new GH_Structure<GH_String>();
         if (isValid)
         {
           var p = 0;
-          foreach (var branchPartsPair in prj.projectParts)
+          foreach (var branchPartsPair in prj.projectParts.ToList().Where(b => branchNames?.Contains((string)b.Key) ?? true).OrderBy(kvp => branchesOrder.IndexOf(kvp.Key) ))
           {
             partsTree.AppendRange(branchPartsPair.Value.Select(s => new GH_String((string)s.part_name)).ToList(), DA.ParameterTargetPath(1).AppendElement(p));
             p++;
@@ -131,8 +145,14 @@ namespace ConnectorGrasshopperExtension.Streams
       }
       else
       {
-        DA.SetDataList(1, prj.branches.ToList().Select(branch => branch.Key).ToList());
-        DA.SetDataList(2, prj.branches.ToList().Select(branch => branch.Value.ToString()).ToList());
+        DA.SetDataList(1, prj.branches.ToList()
+          .Where(b => branchNames?.Contains((string)b.Key) ?? true)
+          .OrderBy(b => branchesOrder.IndexOf((string)b.Key))
+          .Select(branch => branch.Key).ToList());
+        DA.SetDataList(2, prj.branches.ToList()
+          .Where(b => branchNames?.Contains((string)b.Key) ?? true)
+          .OrderBy(b => branchesOrder.IndexOf((string)b.Key))
+          .Select(branch => branch.Value.ToString()).ToList());
       }
     }
 

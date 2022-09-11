@@ -4,7 +4,7 @@
     <TargetFramework>net48</TargetFramework>
     <Version>1.0</Version>
     <Title>ConnectorGrasshopperExtension</Title>
-    <Description>Description of ConnectorGrasshopperExtension</Description>
+    <Description>Adds functionalities like querying to the Speckle Grasshopper Connector.</Description>
     <TargetExt>.gha</TargetExt>
     <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>

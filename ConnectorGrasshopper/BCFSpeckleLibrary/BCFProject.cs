@@ -25,6 +25,7 @@ namespace BCFSpeckleLibrary
     public Dictionary<string, StreamWrapper> branches = new Dictionary<string, StreamWrapper>();
     public Dictionary<string, List<dynamic>> projectParts = new Dictionary<string, List<dynamic>>();
 
+    
     public BCFProject(Account account, string projectName, bool create = false) : base (account)
     {
       ProjectName = projectName;
@@ -63,7 +64,7 @@ namespace BCFSpeckleLibrary
       {
         var branches = await client.StreamGetBranches(StreamId).ConfigureAwait(false);
 
-        var branchToAdd = (branchNames ?? new List<string> { "uploaded", "nested", "done" }).Where(bn => !branches.Any(bs => bs.name == bn)).ToList();
+        var branchToAdd = (new List<string> { "uploaded", "nested", "done" }).Where(bn => !branches.Any(bs => bs.name == bn)).Union(branchNames).ToList();
 
         branchToAdd?.ForEach(bName => client.BranchCreate(new BranchCreateInput
         {

@@ -24,7 +24,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConverterGrasshopper6", "..
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConverterGrasshopper7", "..\Objects\Converters\ConverterRhinoGh\ConverterGrasshopper7\ConverterGrasshopper7.csproj", "{D0783323-D28A-4A2B-9F4E-3534275D3909}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectorGrasshopper", "ConnectorGrasshopper\ConnectorGrasshopper.csproj", "{109B3382-634B-408A-8A5C-4CD09CB92641}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectorGrasshopper", "ConnectorGrasshopper\ConnectorGrasshopper.csproj", "{109B3382-634B-408A-8A5C-4CD09CB92641}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectorGrasshopperExtension", "ConnectorGrasshopperExtension\ConnectorGrasshopperExtension.csproj", "{5BDFD9C3-2AA2-443D-9364-F2E2C8125E06}"
 EndProject
@@ -80,8 +80,8 @@ Global
 		{CE932936-C8FD-4823-B253-BAC826B65A3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE932936-C8FD-4823-B253-BAC826B65A3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE932936-C8FD-4823-B253-BAC826B65A3B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{55B33FA3-51AC-4F61-B859-1B4FE4495B04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{55B33FA3-51AC-4F61-B859-1B4FE4495B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55B33FA3-51AC-4F61-B859-1B4FE4495B04}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{55B33FA3-51AC-4F61-B859-1B4FE4495B04}.Debug|Any CPU.Build.0 = Debug|x64
 		{55B33FA3-51AC-4F61-B859-1B4FE4495B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55B33FA3-51AC-4F61-B859-1B4FE4495B04}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0AF92243-981E-4F86-B2B2-74AAFA3829B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

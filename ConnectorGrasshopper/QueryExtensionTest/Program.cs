@@ -25,6 +25,12 @@ namespace QueryExtensionTest
       Console.WriteLine(acc.serverInfo.url);
       var stream = new StreamWrapper("http://bettercncfactory.iaac.net/streams/92a0ebb273");
 
+      Console.ForegroundColor = ConsoleColor.Cyan;
+      Console.WriteLine("\n\n======== BRANCH TEST\n");
+      Console.ResetColor();
+
+      var branchMan = new BCFBranch(acc, "TestProject");
+      branchMan.MoveToBranch("nested", new List<string> { "tp_mdf_6", "tp_mdf_7" }).Wait();
 
 
       Console.ForegroundColor = ConsoleColor.Cyan;
@@ -81,7 +87,6 @@ namespace QueryExtensionTest
       
       sheetsMan.ValidateSheets().Wait();
       sheetsMan.Sheets.Keys.ToList().ForEach(n => Console.WriteLine(n));
-
 
 
       Console.WriteLine("Press any key to exit . . .");

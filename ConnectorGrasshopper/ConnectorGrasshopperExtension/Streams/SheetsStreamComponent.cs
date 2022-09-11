@@ -18,7 +18,7 @@ namespace ConnectorGrasshopperExtension.Streams
     public SheetsStreamComponent()
       : base("Sheets", "Sht",
       "Get a Sheets stream.",
-      "Speckle 2", "BCF Repository")
+      "Speckle 2", "BCF Repo")
     {
     }
 

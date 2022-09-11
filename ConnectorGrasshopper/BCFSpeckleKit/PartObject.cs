@@ -43,7 +43,6 @@ namespace BCFSpeckleKit.Models
     public double efficiency { get; set; }
     public double spacing { get; set; }
 
-    [DetachProperty]
     public Base outline { get; set; }
 
     [DetachProperty]

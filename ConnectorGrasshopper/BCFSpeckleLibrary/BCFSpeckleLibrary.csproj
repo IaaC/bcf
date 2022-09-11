@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BCFBranch.cs" />
     <Compile Include="BCFProject.cs" />
     <Compile Include="BCFSheets.cs" />
     <Compile Include="BCFStream.cs" />
